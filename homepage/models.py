@@ -14,8 +14,7 @@ class User(models.Model):
     phonenum = models.CharField(max_length=20)
     cvlink = models.CharField(max_length=100)
     linkedinlink = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='profileimage',default="default.png")
-
+    profileimage = CloudinaryField('image')
 
 class Education(models.Model):
     edname = models.CharField(max_length=20)
@@ -46,9 +45,5 @@ class Projects(models.Model):
     pname = models.CharField(max_length=20)
     pdate = models.CharField(max_length=20)
     pdetail = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='projectsimage',default="default.png")
-    puid = models.ForeignKey(User,on_delete=models.CASCADE)
-
-
-class Temp(models.Model):
     image = CloudinaryField('image')
+    puid = models.ForeignKey(User,on_delete=models.CASCADE)

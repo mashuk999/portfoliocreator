@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from homepage.forms import UserForm,EducationForm,ExperienceForm,AchievementForm,ProjectsForm,SkillForm,PhotoForm
+from homepage.forms import UserForm,EducationForm,ExperienceForm,AchievementForm,ProjectsForm,SkillForm
 
 
 
