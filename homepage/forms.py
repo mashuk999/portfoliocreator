@@ -20,30 +20,33 @@ class UserForm(forms.ModelForm):
 class EducationForm(forms.ModelForm):
     class Meta:
         model = Education
-
         fields = '__all__'
+        exclude =['eduid']
 
 class ExperienceForm(forms.ModelForm):
     class Meta:
         model = Experience
 
         fields='__all__'
+        exclude =['euid']
 
 class AchievementForm(forms.ModelForm):
     class Meta:
         model = Achievement
 
         fields='__all__'
+        exclude =['auid']
 
 class ProjectsForm(forms.ModelForm):
     class Meta:
         model = Projects
 
         fields='__all__'
+        exclude =['puid']
 
 class SkillForm(forms.ModelForm):
     class Meta:
         model = Skills
 
         fields='__all__'
-
+        exclude =['suid']

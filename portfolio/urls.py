@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from homepage.views import register,homepage,temp
+from homepage.views import register,homepage,temp,portfolioCreated
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +24,7 @@ urlpatterns = [
     path('register/',register),  
     path('admin/', admin.site.urls),
     path('temp/',temp),
+    path('completed/',portfolioCreated),
     #put this in the end since it contain regex
     path('my/',include('homepage.urls')),  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
