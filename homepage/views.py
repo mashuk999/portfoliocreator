@@ -7,9 +7,14 @@ from .models import User,Education,Experience,Projects,Achievement,Skills
 
 
 # Create your views here.
+
 def homepage(request):
+    return render(request,'homepage.html')
+
+def portfolio(request):
     usrnamefromPath = request.get_full_path()[4:]
     user = User.objects.get(username=usrnamefromPath)
+
     
     educations = Education.objects.filter(eduid__username=user.username)
     experiences = Experience.objects.filter(euid__username=user.username)
