@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  <title>Ronaldo - Free Bootstrap 4 Template by withoutlogic</title>
+  <title>One Profile - By Abhay Nigam</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
   <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/stepform.css' %}">
 
 </head>
 
@@ -28,7 +27,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>P</span>ortfolio creator</a>
+      <a class="navbar-brand" href="/"><span>O</span>ne Profile</a>
       <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
         data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
@@ -51,7 +50,10 @@
       <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
         <div class="col-lg-10 ftco-animate d-flex align-items-center">
           <div class="text text-center">
-            <h1 class="mb-3 bread">Fill Form->Portfolio Ready</h1>
+            <h1 class="mb-3 bread">No Portfolio Found!</h1>
+            <h3 >Why Not to create one</h3>
+
+            <a href="/register"><button  class="col-md-9 btn py-3 px-6 btn-primary">Create Portfolio</button></a>
             <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i
                     class="icon-heart color-danger"></i></a></span> <span class="mr-2">
                 <a href="https://play.google.com/store/apps/dev?id=5248921551412123206&hl=en_IN">Play Games <i
@@ -67,187 +69,6 @@
       </div>
     </div>
   </div>
-
-  <section>
-    <div class="container" >
-      <div class="row">
-        <div class="col-md-12 comment-form-wrap pt-5">
-          <form action="/completed/" class="p-5 bg-light" method="POST" enctype="multipart/form-data" id="form-register">
-            {%csrf_token%}
-            <div class="row">
-
-
-                <h2 class="col-md-12">Personal Details:</h2>
-
-                {% for field in userform %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-                
-
-
-
-                <h2 class="col-md-12">High School Details:</h2>
-
-                {% for field in educationformhigh %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-
-
-                <h2 class="col-md-12">Intermediate Details:</h2>
-
-                {% for field in educationformintermediate %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-
-
-                <h2 class="col-md-12">College Details:</h2>
-
-
-                {% for field in educationformcollege %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-
-                <h2 class="col-md-12">Skill Details:</h2>
-
-
-                {% for field in skillsform %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-
-
-                <h2 class="col-md-12">Experience Details:</h2>
-
-                <h3 class="col-md-12">Experience 1</h3>
-
-
-                {% for field in experienceform1 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                <h3 class="col-md-12">Experience 2</h3>
-
-
-                {% for field in experienceform2 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                <h3 class="col-md-12">Experience 3</h3>
-
-
-                {% for field in experienceform3 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-
-                <h2 class="col-md-12">Achievement Details:</h2>
-
-                <h3 class="col-md-12">Achievement 1</h3>
-
-
-                {% for field in achievementform1 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                <h3 class="col-md-12">Achievement 2</h3>
-
-
-                {% for field in achievementform2 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                <h3 class="col-md-12">Achievement 3</h3>
-
-
-                {% for field in achievementform3 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                <h1 class="col-md-12">Project Details</h1>
-
-                <h3 class="col-md-12">Project 1</h3>
-
-
-                {% for field in projectsform1 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                
-                <h3 class="col-md-12">Project 2</h3>
-
-
-                {% for field in projectsform2 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-                
-                <h3 class="col-md-12">Project 3</h3>
-
-
-                {% for field in projectsform3 %}
-                <div class="form-group col-md-6">
-                  {{ field.errors }}
-                  {{ field.label_tag }} {{ field |add_class:"form-control"}}
-                </div>
-                {% endfor %}
-
-              <!-- <div class="form-group col-md-6">
-              <label for="email">Email *</label>
-              <input type="email" class="form-control" id="email">
-            </div> -->
-
-              <div class="form-group col-md-12">
-                <input type="submit" value="Create Portfolio" class="col-md-12 btn py-3 px-6 btn-primary">
-              </div>
-
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section> <!-- .section -->
 
   <footer class="ftco-footer ftco-section">
     <div class="container">
@@ -293,7 +114,6 @@
   <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
   <script src="{% static 'js/scrollax.min.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/stepform.js' %}"></script>
 
 
 

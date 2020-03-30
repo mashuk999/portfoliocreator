@@ -13,23 +13,26 @@ def homepage(request):
 
 def portfolio(request):
     usrnamefromPath = request.get_full_path()[4:]
-    user = User.objects.get(username=usrnamefromPath)
+    user = User.objects.filter(username=usrnamefromPath)
 
-    
-    educations = Education.objects.filter(eduid__username=user.username)
-    experiences = Experience.objects.filter(euid__username=user.username)
-    projects = Projects.objects.filter(puid__username=user.username)
-    achievements = Achievement.objects.filter(auid__username=user.username)
-    skills = Skills.objects.get(suid__username=user.username)
+    if len(user)>0:
+        user = User.objects.get(username=usrnamefromPath)
+        educations = Education.objects.filter(eduid__username=user.username)
+        experiences = Experience.objects.filter(euid__username=user.username)
+        projects = Projects.objects.filter(puid__username=user.username)
+        achievements = Achievement.objects.filter(auid__username=user.username)
+        skills = Skills.objects.get(suid__username=user.username)
 
-    
+        
 
-    return render(request,'index.html',{'user':user,
-    'experiences':experiences,
-    'educations':educations,
-    'projects':projects,
-    'achievements':achievements,
-    'skills':skills})
+        return render(request,'index.html',{'user':user,
+        'experiences':experiences,
+        'educations':educations,
+        'projects':projects,
+        'achievements':achievements,
+        'skills':skills})
+    else:
+        return render(request,'404.html')
 
 def register(request):
     if request.method == "POST":
@@ -80,8 +83,7 @@ def temp(request):
             return render(request,'single.html')
         return render(request,'index.html')
     else:
-        photoform = PhotoForm()
-        return render(request,'temp.html',{'photoform':photoform})
+        return render(request,'afterregister.html',{'username':'abhay'})
 
 def portfolioCreated(request):
     if request.method == 'POST':
@@ -168,7 +170,7 @@ def portfolioCreated(request):
                 instance = skillsform.save(commit=False)
                 instance.suid = user
                 instance.save()
-                return render(request,'temp.html')
+                return render(request,'afterregister.html',{'username':user.cleaned_data['username']})
             else:
                 print(user.is_valid())
                 print("-----")
