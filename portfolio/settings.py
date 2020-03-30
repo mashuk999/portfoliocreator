@@ -28,7 +28,7 @@ SECRET_KEY = 'y396gwud*)(t&2!_x_jv9u=e!+g6osv9u$0%2)s4&wsu9ov3&('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','portfolioabhay.eu-gb.cf.appdomain.cloud']
+ALLOWED_HOSTS = ['127.0.0.1','oneprofile.herokuapp.com']
 
 
 # Application definition
