@@ -106,7 +106,7 @@ def portfolioCreated(request):
 
         skillsform = SkillForm(request.POST,request.FILES)
 
-
+        usrname =''
         #saving
         if user.is_valid():
             usrname = user.cleaned_data['username']
@@ -170,7 +170,7 @@ def portfolioCreated(request):
                 instance = skillsform.save(commit=False)
                 instance.suid = user
                 instance.save()
-                return render(request,'afterregister.html',{'username':user.cleaned_data['username']})
+                return render(request,'afterregister.html',{'username':usrname})
             else:
                 print(user.is_valid())
                 print("-----")
