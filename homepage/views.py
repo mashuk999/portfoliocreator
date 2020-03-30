@@ -176,5 +176,19 @@ def portfolioCreated(request):
                 print("-----")
                 print(user.errors)
         else:
-            print("username exists")
+            return render(request,'single.html',{'name':'Abhay Nigam','userform':user,'educationformhigh':educationformhigh,
+            'educationformintermediate':educationformintermediate
+            ,'educationformcollege':educationformcollege
+            ,'experienceform1':experienceform1
+            ,'experienceform2':experienceform2
+            ,'experienceform3':experienceform3
+            ,'achievementform1':achievementForm1
+            ,'achievementform2':achievementForm2
+            ,'achievementform3':achievementForm3
+            ,'projectsform1':projectsForm1
+            ,'projectsform2':projectsForm2
+            ,'projectsform3':projectsForm3
+            ,'skillsform':skillsform
+            ,'error':'Username Exists Try Something more Unique'
+            })
     return render(request,'index.html')

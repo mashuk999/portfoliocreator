@@ -4,7 +4,6 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 class User(models.Model):
     username = models.CharField(max_length=50)
-    title = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     aboutme = models.CharField(max_length=150)
     dob = models.CharField(max_length=50)
