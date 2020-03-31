@@ -107,88 +107,91 @@ def portfolioCreated(request):
         skillsform = SkillForm(request.POST,request.FILES)
 
         usrname =''
+        existinguser = 0
         #saving
         if user.is_valid():
             usrname = user.cleaned_data['username']
             existinguser = User.objects.filter(username=usrname)
 
-        if len(existinguser)==0:
-                
-            if user.is_valid() and educationformhigh.is_valid() and educationformintermediate.is_valid() and educationformcollege.is_valid() and experienceform1.is_valid() and experienceform2.is_valid() and experienceform3.is_valid() and achievementForm1.is_valid() and achievementForm2.is_valid() and projectsForm1.is_valid() and projectsForm2.is_valid() and projectsForm3.is_valid() and skillsform.is_valid():
+            if len(existinguser)==0:
+                    
+                if user.is_valid() and educationformhigh.is_valid() and educationformintermediate.is_valid() and educationformcollege.is_valid() and experienceform1.is_valid() and experienceform2.is_valid() and experienceform3.is_valid() and achievementForm1.is_valid() and achievementForm2.is_valid() and projectsForm1.is_valid() and projectsForm2.is_valid() and projectsForm3.is_valid() and skillsform.is_valid():
 
-                user = user.save()
-                print(user)
+                    user = user.save()
+                    print(user)
 
-                instance = educationformhigh.save(commit=False)
-                instance.eduid = user
-                instance.save()
+                    instance = educationformhigh.save(commit=False)
+                    instance.eduid = user
+                    instance.save()
 
-                instance = educationformintermediate.save(commit=False)
-                instance.eduid = user
-                instance.save()
+                    instance = educationformintermediate.save(commit=False)
+                    instance.eduid = user
+                    instance.save()
 
-                instance = educationformcollege.save(commit=False)
-                instance.eduid = user
-                instance.save()
+                    instance = educationformcollege.save(commit=False)
+                    instance.eduid = user
+                    instance.save()
 
-                instance = experienceform1.save(commit=False)
-                instance.euid = user
-                instance.save()
+                    instance = experienceform1.save(commit=False)
+                    instance.euid = user
+                    instance.save()
 
-                instance = experienceform2.save(commit=False)
-                instance.euid = user
-                instance.save()
+                    instance = experienceform2.save(commit=False)
+                    instance.euid = user
+                    instance.save()
 
-                instance = experienceform3.save(commit=False)
-                instance.euid = user
-                instance.save()
+                    instance = experienceform3.save(commit=False)
+                    instance.euid = user
+                    instance.save()
 
-                instance = achievementForm1.save(commit=False)
-                instance.auid = user
-                instance.save()
+                    instance = achievementForm1.save(commit=False)
+                    instance.auid = user
+                    instance.save()
 
-                instance = achievementForm2.save(commit=False)
-                instance.auid = user
-                instance.save()
+                    instance = achievementForm2.save(commit=False)
+                    instance.auid = user
+                    instance.save()
 
-                instance = achievementForm3.save(commit=False)
-                instance.auid = user
-                instance.save()
+                    instance = achievementForm3.save(commit=False)
+                    instance.auid = user
+                    instance.save()
 
-                instance = projectsForm1.save(commit=False)
-                instance.puid = user
-                instance.save()
+                    instance = projectsForm1.save(commit=False)
+                    instance.puid = user
+                    instance.save()
 
-                instance = projectsForm2.save(commit=False)
-                instance.puid = user
-                instance.save()
+                    instance = projectsForm2.save(commit=False)
+                    instance.puid = user
+                    instance.save()
 
-                instance = projectsForm3.save(commit=False)
-                instance.puid = user
-                instance.save()
+                    instance = projectsForm3.save(commit=False)
+                    instance.puid = user
+                    instance.save()
 
-                instance = skillsform.save(commit=False)
-                instance.suid = user
-                instance.save()
-                return render(request,'afterregister.html',{'username':usrname})
+                    instance = skillsform.save(commit=False)
+                    instance.suid = user
+                    instance.save()
+                    return render(request,'afterregister.html',{'username':usrname})
+
             else:
-                print(user.is_valid())
-                print("-----")
-                print(user.errors)
+                return render(request,'single.html',{'name':'Abhay Nigam','userform':user,'educationformhigh':educationformhigh,
+                'educationformintermediate':educationformintermediate
+                ,'educationformcollege':educationformcollege
+                ,'experienceform1':experienceform1
+                ,'experienceform2':experienceform2
+                ,'experienceform3':experienceform3
+                ,'achievementform1':achievementForm1
+                ,'achievementform2':achievementForm2
+                ,'achievementform3':achievementForm3
+                ,'projectsform1':projectsForm1
+                ,'projectsform2':projectsForm2
+                ,'projectsform3':projectsForm3
+                ,'skillsform':skillsform
+                ,'error':'Username Exists Try Something more Unique'
+                })
         else:
-            return render(request,'single.html',{'name':'Abhay Nigam','userform':user,'educationformhigh':educationformhigh,
-            'educationformintermediate':educationformintermediate
-            ,'educationformcollege':educationformcollege
-            ,'experienceform1':experienceform1
-            ,'experienceform2':experienceform2
-            ,'experienceform3':experienceform3
-            ,'achievementform1':achievementForm1
-            ,'achievementform2':achievementForm2
-            ,'achievementform3':achievementForm3
-            ,'projectsform1':projectsForm1
-            ,'projectsform2':projectsForm2
-            ,'projectsform3':projectsForm3
-            ,'skillsform':skillsform
-            ,'error':'Username Exists Try Something more Unique'
-            })
+            print(user.is_valid())
+            print("-----")
+            print(user.errors)
+
     return render(request,'index.html')
