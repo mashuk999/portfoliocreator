@@ -70,7 +70,7 @@
                   <div class="img d-flex align-self-stretch align-items-center">
                      <img src="{% cloudinary_url user.profileimage.public_id %}"
                         width="100%" height="100%" crop="scale" />
-                         </div>
+                        {% cloudinary_url photo.image.public_id sample %} </div>
                </div>
             </div>
             <div class="col-md-6 col-lg-6 pl-md-5 py-5">
@@ -268,7 +268,7 @@
             {%for project in projects%}
             <div class="col-md-4">
                <div class="project img ftco-animate d-flex justify-content-center align-items-center"
-                  style="background-image: url('{% cloudinary_url project.image.public_id sample %}');">
+                  style="background-image: url('http://res.cloudinary.com/drpb4oxcc/image/upload/{{project.image.public_id}}.png');">
                   <div class="overlay"></div>
                   <div class="text text-center p-4">
                      <h3 ><a href="{{project.purl}}">{{project.pname}}</a></h3>
