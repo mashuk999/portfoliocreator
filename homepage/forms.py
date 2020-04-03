@@ -29,10 +29,10 @@ class EducationForm(forms.ModelForm):
         exclude =['eduid']
 
         labels = {
-            'edname':'Name of the Degree/Program',
+            'edname':'Name of the Class/College/University',
             'edorgname':'Organisation Name',
-            'eddate':'Duration of Degree/Program',
-            'eddetails':'Description',
+            'eddate':'Duration Year',
+            'eddetails':'Any Other Activity ',
         }
 
 class ExperienceForm(forms.ModelForm):
@@ -42,9 +42,9 @@ class ExperienceForm(forms.ModelForm):
         fields='__all__'
         exclude =['euid']
         labels = {
-            'ename':'Name of the Experience',
+            'ename':'Your Experience Towards',
             'eorgname':'Organisation Name',
-            'edate':'Duration',
+            'edate':'Duration For Achieving Experience',
             'edetail':'Description',
         }
 
@@ -55,8 +55,8 @@ class AchievementForm(forms.ModelForm):
         fields='__all__'
         exclude =['auid']
         labels = {
-            'aname':'Name of the Achievement',
-            'aorgname':'Organisation Name',
+            'aname':"Your Achievements",
+            'aorgname':"Achievement's Organisation Name",
             'adate':'Date/Duration',
             'adetail':'Description',
         }
@@ -68,8 +68,8 @@ class ProjectsForm(forms.ModelForm):
         fields='__all__'
         exclude =['puid']
         labels = {
-            'pname':'Name of the Achievement',
-            'pdate':'Date/Duration',
+            'pname':'Name of the Project',
+            'pdate':'Time Taken To Build The Project',
             'pdetail':'Description',
             'purl':'Project Link',
             'image':'Project Screenshot'
